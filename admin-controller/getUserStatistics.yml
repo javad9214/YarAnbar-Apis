@@ -1,0 +1,43 @@
+info:
+  name: getUserStatistics
+  type: http
+  seq: 10
+  tags:
+    - admin-controller
+
+http:
+  method: GET
+  url: "{{baseUrl}}/api/admin/users/statistics"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+examples:
+  - name: 200 Response
+    description: OK
+    request:
+      url: "{{baseUrl}}/api/admin/users/statistics"
+      method: GET
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: "*/*"
+      body:
+        type: text
+        data: |-
+          {
+            "totalUsers": 0,
+            "activeUsers": 0,
+            "lockedUsers": 0,
+            "disabledUsers": 0,
+            "newUsersToday": 0,
+            "newUsersThisWeek": 0,
+            "newUsersThisMonth": 0
+          }

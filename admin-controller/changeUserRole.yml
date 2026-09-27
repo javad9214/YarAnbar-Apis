@@ -1,0 +1,64 @@
+info:
+  name: changeUserRole
+  type: http
+  seq: 9
+  tags:
+    - admin-controller
+
+http:
+  method: POST
+  url: "{{baseUrl}}/api/admin/users/:userId/change-role"
+  params:
+    - name: userId
+      value: ""
+      type: path
+    - name: role
+      value: ""
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+examples:
+  - name: 200 Response
+    description: OK
+    request:
+      url: "{{baseUrl}}/api/admin/users/:userId/change-role"
+      method: POST
+      params:
+        - name: userId
+          value: ""
+          type: path
+        - name: role
+          value: ""
+          type: query
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: "*/*"
+      body:
+        type: text
+        data: |-
+          {
+            "id": 0,
+            "phoneNumber": "",
+            "fullName": "",
+            "profileImageUrl": "",
+            "role": "USER",
+            "enabled": false,
+            "accountLocked": false,
+            "failedLoginAttempts": 0,
+            "deviceToken": "",
+            "deviceId": "",
+            "createdAt": "",
+            "updatedAt": "",
+            "lastLogin": "",
+            "accountLockedAt": ""
+          }

@@ -2,9 +2,27 @@ opencollection: 1.0.0
 
 info:
   name: stockguard
+config:
+  proxy:
+    inherit: true
+    config:
+      protocol: http
+      hostname: ""
+      port: ""
+      auth:
+        username: ""
+        password: ""
+      bypassProxy: ""
 bundled: false
 extensions:
   bruno:
     ignore:
       - node_modules
       - .git
+    openapi:
+      - sourceUrl: http://188.75.89.14:22015/v3/api-docs
+        groupBy: tags
+        lastSyncDate: 2026-09-27T11:01:43.636Z
+        specHash: f7e4ae14fd330afd60227440e87a08f7
+        autoCheck: true
+        autoCheckInterval: 5

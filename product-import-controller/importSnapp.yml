@@ -1,0 +1,46 @@
+info:
+  name: importSnapp
+  type: http
+  seq: 1
+  tags:
+    - product-import-controller
+
+http:
+  method: POST
+  url: "{{baseUrl}}/api/import/snapp"
+  body:
+    type: json
+    data: |-
+      {
+        "file": ""
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+examples:
+  - name: 200 Response
+    description: OK
+    request:
+      url: "{{baseUrl}}/api/import/snapp"
+      method: POST
+      body:
+        type: json
+        data: |-
+          {
+            "file": ""
+          }
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: "*/*"
+      body:
+        type: text
+        data: "{}"

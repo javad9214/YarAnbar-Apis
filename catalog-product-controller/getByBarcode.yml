@@ -1,0 +1,66 @@
+info:
+  name: getByBarcode
+  type: http
+  seq: 6
+  tags:
+    - catalog-product-controller
+
+http:
+  method: GET
+  url: "{{baseUrl}}/api/catalog/products/barcode/:barcode"
+  params:
+    - name: barcode
+      value: ""
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+examples:
+  - name: 200 Response
+    description: OK
+    request:
+      url: "{{baseUrl}}/api/catalog/products/barcode/:barcode"
+      method: GET
+      params:
+        - name: barcode
+          value: ""
+          type: path
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: "*/*"
+      body:
+        type: text
+        data: |-
+          {
+            "id": 0,
+            "name": "",
+            "barcode": "",
+            "description": "",
+            "brand": "",
+            "manufacturer": "",
+            "subcategoryId": 0,
+            "subcategoryName": "",
+            "categoryName": "",
+            "imageUrl": "",
+            "imageSource": "",
+            "suggestedSellPrice": 0,
+            "suggestedCostPrice": 0,
+            "unit": "PIECE",
+            "tags": "",
+            "status": "VERIFIED",
+            "qualityScore": 0,
+            "adoptionCount": 0,
+            "externalSource": "",
+            "externalSourceId": 0,
+            "createdAt": "",
+            "updatedAt": ""
+          }

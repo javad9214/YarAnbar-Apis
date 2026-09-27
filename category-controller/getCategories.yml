@@ -1,0 +1,52 @@
+info:
+  name: getCategories
+  type: http
+  seq: 1
+  tags:
+    - category-controller
+
+http:
+  method: GET
+  url: "{{baseUrl}}/api/categories"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+examples:
+  - name: 200 Response
+    description: OK
+    request:
+      url: "{{baseUrl}}/api/categories"
+      method: GET
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: "*/*"
+      body:
+        type: text
+        data: |-
+          {
+            "resCode": 0,
+            "resMessage": "",
+            "info": [
+              {
+                "id": 0,
+                "name": "",
+                "icon": "",
+                "subcategories": [
+                  {
+                    "id": 0,
+                    "name": "",
+                    "icon": ""
+                  }
+                ]
+              }
+            ]
+          }

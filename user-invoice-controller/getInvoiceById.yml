@@ -1,0 +1,70 @@
+info:
+  name: getInvoiceById
+  type: http
+  seq: 4
+  tags:
+    - user-invoice-controller
+
+http:
+  method: GET
+  url: "{{baseUrl}}/api/invoices/:id"
+  params:
+    - name: id
+      value: ""
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+examples:
+  - name: 200 Response
+    description: OK
+    request:
+      url: "{{baseUrl}}/api/invoices/:id"
+      method: GET
+      params:
+        - name: id
+          value: ""
+          type: path
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: "*/*"
+      body:
+        type: text
+        data: |-
+          {
+            "id": 0,
+            "localId": 0,
+            "prefix": "",
+            "invoiceNumber": 0,
+            "invoiceDate": 0,
+            "invoiceType": "",
+            "customerId": 0,
+            "totalAmount": 0,
+            "totalProfit": 0,
+            "totalDiscount": 0,
+            "status": "",
+            "paymentMethod": "",
+            "notes": "",
+            "isDeleted": false,
+            "createdAt": 0,
+            "updatedAt": 0,
+            "items": [
+              {
+                "productId": 0,
+                "quantity": 0,
+                "priceAtSale": 0,
+                "costPriceAtTransaction": 0,
+                "discount": 0,
+                "total": 0
+              }
+            ]
+          }

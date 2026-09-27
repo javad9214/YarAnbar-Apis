@@ -1,0 +1,102 @@
+info:
+  name: searchProducts
+  type: http
+  seq: 7
+  tags:
+    - user-product-controller
+
+http:
+  method: GET
+  url: "{{baseUrl}}/api/products/search"
+  params:
+    - name: query
+      value: ""
+      type: query
+    - name: page
+      value: "0"
+      type: query
+      disabled: true
+    - name: size
+      value: "1"
+      type: query
+      disabled: true
+    - name: sort
+      value: "[]"
+      type: query
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+examples:
+  - name: 200 Response
+    description: OK
+    request:
+      url: "{{baseUrl}}/api/products/search"
+      method: GET
+      params:
+        - name: query
+          value: ""
+          type: query
+        - name: page
+          value: "0"
+          type: query
+          disabled: true
+        - name: size
+          value: "1"
+          type: query
+          disabled: true
+        - name: sort
+          value: "[]"
+          type: query
+          disabled: true
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: "*/*"
+      body:
+        type: text
+        data: |-
+          {
+            "content": [
+              {
+                "id": 0,
+                "userId": 0,
+                "catalogProductId": 0,
+                "barcode": "",
+                "customName": "",
+                "price": 0,
+                "costPrice": 0,
+                "description": "",
+                "imageType": "",
+                "image": "",
+                "subcategoryId": 0,
+                "categoryId": 0,
+                "subcategoryName": "",
+                "categoryName": "",
+                "supplierId": 0,
+                "unit": "PIECE",
+                "unitFa": "",
+                "stock": 0,
+                "minStockLevel": 0,
+                "maxStockLevel": 0,
+                "isActive": false,
+                "tags": "",
+                "synced": false,
+                "createdAt": "",
+                "updatedAt": ""
+              }
+            ],
+            "page": 0,
+            "size": 0,
+            "totalElements": 0,
+            "totalPages": 0,
+            "last": false
+          }

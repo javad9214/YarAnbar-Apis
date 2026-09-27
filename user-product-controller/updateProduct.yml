@@ -1,0 +1,65 @@
+info:
+  name: updateProduct
+  type: http
+  seq: 2
+  tags:
+    - user-product-controller
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/api/products/:id"
+  params:
+    - name: id
+      value: ""
+      type: path
+  body:
+    type: multipart-form
+    data:
+      - name: product
+        type: text
+        value: ""
+      - name: image
+        type: file
+        value: []
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+examples:
+  - name: 200 Response
+    description: OK
+    request:
+      url: "{{baseUrl}}/api/products/:id"
+      method: PUT
+      params:
+        - name: id
+          value: ""
+          type: path
+      body:
+        type: multipart-form
+        data:
+          - name: product
+            type: text
+            value: ""
+          - name: image
+            type: file
+            value: []
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: "*/*"
+      body:
+        type: text
+        data: |-
+          {
+            "resCode": 0,
+            "resMessage": "",
+            "info": ""
+          }

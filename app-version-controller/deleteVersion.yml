@@ -1,0 +1,39 @@
+info:
+  name: deleteVersion
+  type: http
+  seq: 3
+  tags:
+    - app-version-controller
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/api/version/admin/:platform"
+  params:
+    - name: platform
+      value: ""
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+examples:
+  - name: 200 Response
+    description: OK
+    request:
+      url: "{{baseUrl}}/api/version/admin/:platform"
+      method: DELETE
+      params:
+        - name: platform
+          value: ""
+          type: path
+    response:
+      status: 200
+      statusText: OK
+      body:
+        type: text
+        data: ""

@@ -1,0 +1,57 @@
+info:
+  name: createCustomProduct
+  type: http
+  seq: 5
+  tags:
+    - user-product-controller
+
+http:
+  method: POST
+  url: "{{baseUrl}}/api/products"
+  body:
+    type: multipart-form
+    data:
+      - name: product
+        type: text
+        value: ""
+      - name: image
+        type: file
+        value: []
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+examples:
+  - name: 200 Response
+    description: OK
+    request:
+      url: "{{baseUrl}}/api/products"
+      method: POST
+      body:
+        type: multipart-form
+        data:
+          - name: product
+            type: text
+            value: ""
+          - name: image
+            type: file
+            value: []
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: "*/*"
+      body:
+        type: text
+        data: |-
+          {
+            "resCode": 0,
+            "resMessage": "",
+            "info": 0
+          }

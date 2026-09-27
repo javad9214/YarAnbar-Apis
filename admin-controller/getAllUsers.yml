@@ -1,0 +1,108 @@
+info:
+  name: getAllUsers
+  type: http
+  seq: 4
+  tags:
+    - admin-controller
+
+http:
+  method: GET
+  url: "{{baseUrl}}/api/admin/users"
+  params:
+    - name: page
+      value: "0"
+      type: query
+    - name: size
+      value: "20"
+      type: query
+    - name: search
+      value: ""
+      type: query
+      disabled: true
+    - name: enabled
+      value: ""
+      type: query
+      disabled: true
+    - name: locked
+      value: ""
+      type: query
+      disabled: true
+    - name: sortBy
+      value: createdAt
+      type: query
+    - name: sortDir
+      value: desc
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+examples:
+  - name: 200 Response
+    description: OK
+    request:
+      url: "{{baseUrl}}/api/admin/users"
+      method: GET
+      params:
+        - name: page
+          value: "0"
+          type: query
+        - name: size
+          value: "20"
+          type: query
+        - name: search
+          value: ""
+          type: query
+          disabled: true
+        - name: enabled
+          value: ""
+          type: query
+          disabled: true
+        - name: locked
+          value: ""
+          type: query
+          disabled: true
+        - name: sortBy
+          value: createdAt
+          type: query
+        - name: sortDir
+          value: desc
+          type: query
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: Content-Type
+          value: "*/*"
+      body:
+        type: text
+        data: |-
+          {
+            "users": [
+              {
+                "id": 0,
+                "phoneNumber": "",
+                "fullName": "",
+                "profileImageUrl": "",
+                "role": "USER",
+                "enabled": false,
+                "accountLocked": false,
+                "failedLoginAttempts": 0,
+                "deviceToken": "",
+                "deviceId": "",
+                "createdAt": "",
+                "updatedAt": "",
+                "lastLogin": "",
+                "accountLockedAt": ""
+              }
+            ],
+            "currentPage": 0,
+            "totalPages": 0,
+            "totalElements": 0,
+            "pageSize": 0
+          }
