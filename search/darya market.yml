@@ -1,0 +1,26 @@
+info:
+  name: darya market
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: https://daryamart.ir/newapi/v1/Products/GetProductsSearch?Key=6261149010686&PageNumber=1&PageSize=50
+  params:
+    - name: Key
+      value: "6261149010686"
+      type: query
+    - name: PageNumber
+      value: "1"
+      type: query
+    - name: PageSize
+      value: "50"
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

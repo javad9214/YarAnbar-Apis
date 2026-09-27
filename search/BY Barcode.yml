@@ -1,0 +1,24 @@
+info:
+  name: BY Barcode
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{baseUrl}}/api/barcode/lookup"
+  body:
+    type: json
+    data: |-
+      {
+        "barcode":"6261149010686"
+      }
+  auth:
+    type: bearer
+    token: "{{authToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

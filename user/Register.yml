@@ -1,0 +1,32 @@
+info:
+  name: Register
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{baseUrl}}/api/auth/register"
+  body:
+    type: json
+    data: |-
+      {
+        "phoneNumber": "+989105107256",
+        "password": "123456",
+        "fullName":"Seyed",
+        "deviceToken": "string",
+        "deviceId": "string"
+      }
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        const token = res.getBody().token;
+        bru.setEnvVar("authToken", token);
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

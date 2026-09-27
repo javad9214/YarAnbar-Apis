@@ -1,0 +1,6 @@
+name: StockGuard
+variables:
+  - name: baseUrl
+    value: http://188.75.89.14:22015
+  - secret: true
+    name: authToken
