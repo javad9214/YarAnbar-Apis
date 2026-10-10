@@ -22,7 +22,7 @@ extensions:
     openapi:
       - sourceUrl: http://188.75.89.14:22015/v3/api-docs
         groupBy: tags
-        lastSyncDate: 2026-09-27T11:01:43.636Z
-        specHash: f7e4ae14fd330afd60227440e87a08f7
+        lastSyncDate: 2026-10-10T08:05:11.381Z
+        specHash: d74bff939ffd09f8df251d7ca25b8340
         autoCheck: true
         autoCheckInterval: 5

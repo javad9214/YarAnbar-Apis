@@ -14,6 +14,7 @@ http:
       [
         {
           "localId": 0,
+          "serverId": 0,
           "prefix": "",
           "invoiceNumber": 0,
           "invoiceDate": 0,
