@@ -10,7 +10,7 @@ http:
     type: json
     data: |-
       {
-        "barcode": "6261149010686"
+        "barcode": "6261149137093"
       }
   auth:
     type: bearer

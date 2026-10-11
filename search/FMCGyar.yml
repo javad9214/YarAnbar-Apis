@@ -5,7 +5,7 @@ info:
 
 http:
   method: GET
-  url: https://admin.fmcgyar.ir/api/v1/products/related/6261149010686
+  url: https://admin.fmcgyar.ir/api/v1/products/related/6261149137093
   auth: inherit
 
 settings:
